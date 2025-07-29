@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routes import modules
+from app.routes import module
 
 app = FastAPI(title="modulr")
 
-app.include_router(modules.router)
+app.include_router(module.router)

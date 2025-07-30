@@ -1,8 +1,9 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from .database import engine, Base
-from .models import module as models
-from .routes import module
+from .models import module as model_module
+from .routes import module as module_routes
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -13,4 +14,4 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="modulr", lifespan=lifespan)
 
-app.include_router(module.router)
+app.include_router(module_routes.router)
